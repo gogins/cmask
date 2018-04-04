@@ -1,5 +1,5 @@
 # CMask
-written by Andre Bartetzki <andre@bartetzki.de>
+Written by Andre Bartetzki <andre@bartetzki.de>
 
 This software is published under MPL 2.0 terms, see file LICENSE.
 
