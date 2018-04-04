@@ -1,7 +1,7 @@
 # CMask
 written by Andre Bartetzki <andre@bartetzki.de>
 
-This software is published under GPL terms, see file LICENSE.txt.
+This software is published under MPL 2.0 terms, see file LICENSE.
 
 This is software with ABSOLUTELY NO WARRANTY.
 
@@ -17,5 +17,6 @@ This version of Cmask hosted at http://github.com/kunstmusik/cmask has been upda
 1. "#include <iostream.h>" has been updated to "#include <iostream>"
 2. "using namespace std;" has been added to globals.h
 3. D_IRIX is defined for the build in globals.h, making the build suitable for Linux.  Users compiling cmask for other platforms will have to change what platform is defined in globals.h. 
+4. License has been changed from GPL to MPL 2.0 with the permission of the author.
 
 
