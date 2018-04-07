@@ -117,7 +117,6 @@ void quantizer::setqlimit(int a) {limit = a;}
 
 double quantizer::getval(double xt, double gx, double g1, double g2) 
 	{	//quantisierter Eingangswert gx an der Stelle xt
-	long n = 0;
 	double erg,err,d,r;
 	 
 	if (dyn1) qv = q->getval(xt);

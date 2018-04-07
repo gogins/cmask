@@ -65,8 +65,7 @@ double round(double val, long dec)
 
 double modul(double x, double u, double o)
 	{
-	double diff,xn,e;
-	
+	double diff,xn;
 	diff = o - u;
 	if (diff == 0.0) x = u;
 	if (x > o) 
@@ -84,8 +83,7 @@ double modul(double x, double u, double o)
 
 double mirror(double x, double u, double o)
 	{
-	double diff,xn,e;
-	
+	double diff,xn;
 	diff = o - u;
 	if (diff == 0.0) x = u;
 	if (x > o) 
@@ -147,8 +145,7 @@ double dmaximum(double *x, long n)
 	
 double interpol(double ex, double r,double a, double b)
 	{
-	double erg;
-	
+	double erg = 0;	
 	if(ex == 0.0)	
 		erg = a + r * (b - a); 
 	else if((ex > 0.0) && (b >= a))
@@ -159,16 +156,13 @@ double interpol(double ex, double r,double a, double b)
 		erg = b + pow(1.0-r,abs(ex) +1.0) * (a - b);	 				
 	else if((ex < 0.0) && (b < a))
 		erg = a + pow(r,abs(ex) +1.0) * (b - a);	 				
-
 	return erg;
 	}	
 	
 double interpolcos(double r,double a, double b)
 	{
-	double erg,cx;
-	
-	cx = cos(ONEPI*r + ONEPI)/2.0 + 0.5;
-	erg = a + cx * (b - a); 
+	double cx = cos(ONEPI*r + ONEPI)/2.0 + 0.5;
+	double erg = a + cx * (b - a); 
 	return erg;
 	}	
 	

@@ -26,15 +26,10 @@
 int main(int argc, char *argv[])
 {	 
 	scanner s;
-	int	i;
 	char	*inname, *outname;
-
-
 	inname = new char [MAX_FILENAME];
 	outname = new char [MAX_FILENAME];
-
 	if (!inname || !outname) error(MEMORY,"file name string");
-
 #if defined D_MAC
 	strcpy(inname,"indummy");
 	strcpy(outname,"outdummy");
@@ -44,15 +39,12 @@ int main(int argc, char *argv[])
 	SIOUXSetTitle("\pCMask");
 	//SIOUXSettings.setupmenus = FALSE;	
 #endif
-
 	cout << "-------- CMask 0.31 --------" << endl;
 	cout << "----- Modified Version -----" << endl;
 	cout << "-------- " __DATE__ " -------\n" << endl;
-	
 #if defined D_MAC
 	cout << "Choose parameter file ..." << endl;
 #endif	
-
 #if defined D_IRIX
 	//argc = ccommand(&argv);
 	if(argc!=3 && argc!=2)
@@ -68,22 +60,16 @@ int main(int argc, char *argv[])
 		strcpy(outname,inname);
 	//cout << "parameter file: " << inname << endl;
 #endif
-
 	frandinit();
-
 	s.scn(inname,outname);
 	s.analyze(); 
-
 	cout << "\nscore file OK" << endl;
-	
 #if defined D_MAC
 	cout << "\nCmd-Q to exit ! " << endl;
 #endif	
-
 #if defined D_IRIX
 	cout << "\n----------------------------\n" << endl;
 #endif	
-	
 	delete inname;
 	delete outname;
 	return 0;

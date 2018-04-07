@@ -96,9 +96,7 @@ void mask::setmap(double m) {map = pow(2.0,m);}
 
 double mask::getval(double xt, double gx, double *g1, double *g2) 
 	{	//skalierter Eingangswert gx {0,1} an der Stelle xt
-	long n = 0;
-	double erg;
-	 
+	double erg;	 
 	if(dyn1) lov = lo->getval(xt);
 	if(dyn2) hiv = hi->getval(xt);
 	erg = lov + (hiv - lov) * mapper(gx,map);
@@ -155,9 +153,7 @@ void accum::initakku(double a) {akku = a;}
 
 double accum::getval(double xt, double gx, double *g1, double *g2) 
 	{	//skalierter Eingangswert gx an der Stelle xt
-	long n = 0;
-	double erg;
-	 
+	double erg = 0;	 
  	if (bmode) 
 		{
 		akku += gx;
@@ -166,11 +162,18 @@ double accum::getval(double xt, double gx, double *g1, double *g2)
 		switch (bmode) 
 			{
 			case bakku: 	break;
-			case bwrap: 	akku = modul(akku, lov, hiv); break;
-			case bmirror: 	akku = mirror(akku, lov, hiv); break;
-			case blimit: 	if (akku < lov) akku = lov;
-						 	if (akku > hiv) akku = hiv;
-							break;
+			case bwrap: 	akku = modul(akku, lov, hiv); 
+                break;
+			case bmirror: 	akku = mirror(akku, lov, hiv); 
+                break;
+			case blimit: 	
+                if (akku < lov) {
+                    akku = lov;
+                }
+                if (akku > hiv) {
+                    akku = hiv;
+                }
+                break;
 			}
 		erg = akku; 
 	/*

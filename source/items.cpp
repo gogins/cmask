@@ -93,8 +93,6 @@ double itemlist::iheap(void)
 double itemlist::ifold(void)
 	{
 	double erg;
-	long i;
-	
 	erg = elem[ip];
 	ip++;
 	if (ip >= ne) 
@@ -107,12 +105,10 @@ double itemlist::ifold(void)
 
 double itemlist::folder(void)
 	{
-	double erg;
-	long i,mid;
-	int odd;
-	
-	odd = oddeven(ne);
+	long mid;
+	(void) oddeven(ne);
 	mid = ne / 2;
+    return mid; // ??
 	}
 
 
@@ -135,8 +131,6 @@ void itemlist::setval(double *ev, long len)
 int itemlist::setmode(char *s) 
 	{
 	int eflag;
-	long i;
-	
 	eflag = -1;
 	if(!strncmp(s,"cycle",2)) 	{eflag = mode = CYCLE; f = &itemlist::icycle;}
 	if(!strncmp(s,"swing",2)) 	{eflag = mode = SWING; f = &itemlist::iswing;}

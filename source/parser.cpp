@@ -414,8 +414,7 @@ void liste::reset(void)
 
 void liste::nth(char *str,long x)
 	{
-	long i, k;
-	
+	long i;	
 	reset();
 	if(x>=n)
 		{
@@ -458,7 +457,7 @@ void liste::next(void)
 	
 void tokliste::findnext(void)
 	{
-	char *in,dummy[16];
+	char *in,dummy[17];
 	long ln;
 	const char *delims = " ,;\n\t\r\f" ;
 
@@ -592,7 +591,7 @@ char *text::savescoreheader(void)
 			out = strchr(in+1,'}');
 			lh = out-in-1;
 			lr = strlen(out);
-			str = new char[lh+1];
+			str = new char[lh+2];
 			if(!str) error(MEMORY, "string");
 			memcpy(str,in+1,lh);
 			strcpy(str+lh,NL);
@@ -631,10 +630,6 @@ void text::removecomments(void)
 void scanner::scn(char *instring, char *outstring)
 	{
 	text	tx;
-	long	i;
-	char	str[16]; 
-	
-	//tx = new text;
 #if defined D_MAC
 	tx.load(filename);	//Name wird durch tx.load in filename gespeichert
 #endif 	
@@ -729,7 +724,7 @@ void scanner::analyzeparam(paramliste& p)
 	{
 	double x,y1,map, iplval;
 	double *fx, *fy;
-	long k,pnum,r,i,ix,iy, iplmode;
+	long k,pnum,r,ix,iy, iplmode;
 	int	ifl;
 
 	pnum = (long) strtod(tok+1,&dummy);
@@ -1363,7 +1358,7 @@ void	scanner::calc(long fn, paramliste& p, long npar)
 	double xt,x;
 	char outstr[1024];
 	char dummy[1024];
-	char pstr[5];
+	char pstr[100];
 	
 	strcpy(outstr," ");
 	

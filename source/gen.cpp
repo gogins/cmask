@@ -42,7 +42,7 @@ void gtable::setipl(double a, long b)
 
 double gtable::getphs(double xt) {			//Phasenzeiger an der Stelle xt
 	long i,k;
-	double erg,f,xtr,phsum;
+	double erg,xtr,phsum;
 	
 	phsum = 0.0;
 	i = 0;

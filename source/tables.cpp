@@ -121,8 +121,9 @@ void table::change(long z, double ex,double ey) {x[z]=ex;y[z]=ey;return;}
 	
 double table::getval(double xt) {			//interpolierter Tabellenwert an der Stelle xt
 	long i = 0;
-	double erg,f,xtr;
-	
+	double erg = 0;
+    double f;
+    double xtr;
 	xtr = round(xt,10); 
 	if(!N) 					erg = y[0];
 	else if(xtr <= x[0]) 	erg = y[0];
@@ -146,7 +147,8 @@ double table::getval(double xt) {			//interpolierter Tabellenwert an der Stelle 
 						break;
 			}
 		}	
-	return erg; }
+        return erg; 
+    }
 
 void table::print(void) {
 	long i;
@@ -256,7 +258,10 @@ void table2::change(long z, double ex,double ey1, double ey2)
 
 void table2::getvals(double xt, double *e1, double *e2) {	 //interpolierte Tabellenwerte an der Stelle xt
 	long i = 0;
-	double erg1,erg2,f,xtr;
+	double erg1 = 0;
+    double erg2 = 0;
+    double f;
+    double xtr;
 
 	xtr = round(xt,10); 
 	if(!N)					{erg1 = y1[0]; erg2 = y2[0];}
