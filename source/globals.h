@@ -4,7 +4,7 @@
 #define GLOBS
 
 
-#define D_IRIX
+//#define D_IRIX
 //#define D_MAC
 //#define D_DOS
 //#define D_WIN

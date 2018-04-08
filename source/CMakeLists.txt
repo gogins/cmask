@@ -15,3 +15,4 @@ parser.cpp
 quant.cpp
 tables.cpp
 utils.cpp)
+target_compile_definitions(cmask PRIVATE D_IRIX)

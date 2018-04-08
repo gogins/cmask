@@ -1,4 +1,4 @@
-// Laden Ÿber Standard dialog
+// Laden ?ber Standard dialog
 
 #include <cstdio>
 #include <cstdlib>
@@ -368,7 +368,7 @@ void liste::clear(void)
 	n = 0;	
 	}		
 
-void liste::append(const char *str)	//fŸge vor end ein
+void liste::append(const char *str)	//f?ge vor end ein
 	{
 	if (strlen(str) > 16)  error(STRING, str);
 	actual = end;
@@ -380,7 +380,7 @@ void liste::append(const char *str)	//fŸge vor end ein
 	n++;
 	}
 	
-void liste::prepend(const char *str)	//fŸge vor start ein
+void liste::prepend(const char *str)	//f?ge vor start ein
 	{
 	if (strlen(str) > 16)  error(STRING, str);
 	actual = new knoten;
@@ -414,7 +414,8 @@ void liste::reset(void)
 
 void liste::nth(char *str,long x)
 	{
-	long i;	
+	long i;
+	
 	reset();
 	if(x>=n)
 		{
@@ -457,13 +458,11 @@ void liste::next(void)
 	
 void tokliste::findnext(void)
 	{
-	char *in,dummy[17];
-	long ln;
+    char dummy[16];
 	const char *delims = " ,;\n\t\r\f" ;
-
-	in = t + strspn(t,delims);	// erster Nichttrenner
+	char *in = t + strspn(t,delims);	// erster Nichttrenner
 	if(in > (t+tn)) return;
-	ln = strcspn(in,delims); 	// nŠchster Trenner
+	long ln = strcspn(in,delims); 	// n?chster Trenner
 	strncpy(dummy,in, ln);  
 	dummy[ln]='\0';
 	
@@ -505,11 +504,9 @@ void tokliste::findnext(void)
 		
 void tokliste::run (char *str)
 	{
-	char *tend;
-	
 	t = str;
 	tn = strlen(t);
-	tend = t + tn;
+	char *tend = t + tn;
 	while (t < tend) findnext();
 	}
 
@@ -591,7 +588,7 @@ char *text::savescoreheader(void)
 			out = strchr(in+1,'}');
 			lh = out-in-1;
 			lr = strlen(out);
-			str = new char[lh+2];
+			str = new char[lh+5];
 			if(!str) error(MEMORY, "string");
 			memcpy(str,in+1,lh);
 			strcpy(str+lh,NL);
@@ -630,11 +627,13 @@ void text::removecomments(void)
 void scanner::scn(char *instring, char *outstring)
 	{
 	text	tx;
+	
+	//tx = new text;
 #if defined D_MAC
 	tx.load(filename);	//Name wird durch tx.load in filename gespeichert
 #endif 	
 #if defined D_IRIX
-	tx.load(instring);	//Name wird durch tx.load Ÿbergeben
+	tx.load(instring);	//Name wird durch tx.load ?bergeben
 #endif 	
 	tx.convertnewline();
 	//tx.savescoreheader(scohdr);
