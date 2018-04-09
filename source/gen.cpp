@@ -11,10 +11,6 @@
 #include "gen.h"
 #include "utils.h"
 
-#define PI 3.141592654
-#define PI2 6.283185308
-
-
 gtable::gtable(double *xv, double *yv, long len) : table(xv, yv,len)
 	{
 	pw2 = 1.0;
@@ -24,7 +20,7 @@ gtable::gtable(double *xv, double *yv, long len) : table(xv, yv,len)
 //gtable::~gtable() {delete[] x; delete[] y;}
 
 double gtable::integr(double x1, double xe, double y1, double y2)  
-	// bestimmtes Integral zwischen 0 und x1 fŸr y1+(y2-y1)*(x^pw2)/(xe^pw2)
+	// bestimmtes Integral zwischen 0 und x1 for y1+(y2-y1)*(x^pw2)/(xe^pw2)
 	{
 	double erg;
 	
@@ -337,12 +333,12 @@ void gen::forward(double time)
 
 void gen::osin(double a,double b)
 	{
-	erg = sin(PI2 * phpt) * 0.5 + 0.5;
+	erg = sin(TWOPI * phpt) * 0.5 + 0.5;
 	}
 
 void gen::ocos(double a,double b)
 	{
-	erg = cos(PI2 * phpt) * 0.5 + 0.5;
+	erg = cos(TWOPI * phpt) * 0.5 + 0.5;
 	}
 
 
@@ -437,7 +433,7 @@ void gen::rexpone(double lambda, double d2)         		//lambda >0 !!
 	do
 		{
 		while ((x = frand()) == 0);
-		x = -(double)log((double)x) / 7.0 / lambda;         // /7 -> "Normierung fŸr 99,9%"
+		x = -(double)log((double)x) / 7.0 / lambda;         // /7 -> "Normierung for 99,9%"
 		}
 	while (x > 1.0);
 	erg = x;
@@ -450,7 +446,7 @@ void gen::rrevexp(double lambda, double d2)         		//lambda >0 !!
 	do
 		{
 		while ((x = frand()) == 0);
-		x = -(double)log((double)x) / 7.0 / lambda;         // /7 -> "Normierung fŸr 99,9%"
+		x = -(double)log((double)x) / 7.0 / lambda;         // /7 -> "Normierung for 99,9%"
 		}
 	while (x > 1.0);
 	erg = 1.0 - x;
@@ -490,7 +486,7 @@ void gen::rgauss(double sigma, double mu)    		// sigma = Standardabweichung  mu
 	erg = e;
 	}
  
-void gen::rcauchy(double alpha, double mu)          //alpha -> Bereich fŸr 50% aller x
+void gen::rcauchy(double alpha, double mu)          //alpha -> Bereich for 50% aller x
 	{
 	double x,e;
 	do                               		// 318*alpha -> 99.9% aller x
@@ -498,7 +494,7 @@ void gen::rcauchy(double alpha, double mu)          //alpha -> Bereich fŸr 50% a
 		do                             		// mu -> Mittelwert
 			x = frand();
 		while ( x == 0.5);
-		e = alpha * tan(x * PI) + mu;
+		e = alpha * tan(x * ONEPI) + mu;
 		}
 	while ((e > 1.0) || (e < 0.0));
 	erg = e;

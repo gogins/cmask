@@ -14,8 +14,12 @@
 #define LINE 	1
 #define EXPON	2
 
+#if !defined(TWOPI)
 #define TWOPI   6.283185308
+#endif
+#if !defined(ONEPI)
 #define ONEPI   3.141592654
+#endif
 
 void frandinit(void);
 double	frand(void);
