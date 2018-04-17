@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 #if defined D_MAC
 	cout << "Choose parameter file ..." << endl;
 #endif	
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
 	//argc = ccommand(&argv);
 	if(argc!=3 && argc!=2)
 		{
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 #if defined D_MAC
 	cout << "\nCmd-Q to exit ! " << endl;
 #endif	
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
 	cout << "\n----------------------------\n" << endl;
 #endif	
 	delete inname;

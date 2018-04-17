@@ -11,7 +11,7 @@
 
 #define MAX_FILENAME  2048
 
-#if defined D_IRIX
+#if defined(D_IRIX) || defined(__unix__)
 	
 	typedef char** 	Handle;
 	typedef int 	OSErr;	
@@ -21,7 +21,7 @@
 #if defined D_MAC
 	#define NL "\r"
 
-#elif defined D_IRIX
+#elif defined(D_IRIX) || defined(__unix__)
 	#define NL "\n"
 
 #elif defined D_DOS

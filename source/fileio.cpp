@@ -58,7 +58,7 @@ void infile::open(void)
 		}
 #endif
 
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
 	long i;
 	
 	fp = fopen(filename,"r");
@@ -105,7 +105,7 @@ char *infile::read(void)
 		if (err) error(FILERR,"reading parameter file.",err);
 #endif
 
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
 		test = fread(text,sizeof(char),countBytes,fp);
 		if (test != countBytes) 
 			error(FILERR,"reading parameter file.",1);
@@ -181,7 +181,7 @@ void outfile::create(char *str)
 		}
 #endif
 
-#if defined D_IRIX	
+#if defined(D_IRIX)  || defined(__unix__)
 	//cout << "Score file: " << filename << endl;	
 	fp = fopen(filename,"w");
 	if(fp == NULL)
@@ -199,7 +199,7 @@ void outfile::close(void)
 	err = FSClose (fileRefNum);
 	err = FlushVol (NULL, reply.vRefNum);
 #endif
-#if defined D_IRIX		
+#if defined(D_IRIX)  || defined(__unix__)	
 	err = fflush (fp);
 	err = fclose (fp);
 #endif
@@ -216,7 +216,7 @@ void outfile::write(char *str)
 	err = FSWrite (fileRefNum, &countBytes, str);
 	if (err) error(FILERR,"writing score file",err);
 #endif
-#if defined D_IRIX		
+#if defined(D_IRIX)  || defined(__unix__)
 	
 	test = fwrite(str,sizeof(char),countBytes,fp);
 	if (test != countBytes) 

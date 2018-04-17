@@ -548,7 +548,7 @@ void text::load(char *str)
     }
 #endif
 
-#if defined D_IRIX 
+#if defined(D_IRIX)  || defined(__unix__)
 void text::load(char *strg)	
     {
     //strcpy(filename,inname);
@@ -568,7 +568,7 @@ void text::convertnewline()
     for(i=0; i < n; i++)
 #if defined D_MAC	
         if( ((int) theText[i]) == 10) theText[i] = (char)13;
-#elif defined D_IRIX
+#elif defined(D_IRIX)  || defined(__unix__)
         if( ((int) theText[i]) == 13) theText[i] = (char)10;
 #endif		
     }	
@@ -630,7 +630,7 @@ void scanner::scn(char *instring, char *outstring)
 #if defined D_MAC
     tx.load(filename);	//Name wird durch tx.load in filename gespeichert
 #endif 	
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
     tx.load(instring);	//Name wird durch tx.load ?bergeben
 #endif 	
     tx.convertnewline();
@@ -645,7 +645,7 @@ void scanner::scn(char *instring, char *outstring)
 #if defined D_MAC
     fileout.create(filename);
 #endif 	
-#if defined D_IRIX
+#if defined(D_IRIX)  || defined(__unix__)
     fileout.create(outstring);	
 #endif 	
     if(scohdr) fileout.write(scohdr);
